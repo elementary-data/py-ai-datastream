@@ -2,7 +2,7 @@
 
 This package contains an implementation of the Vercel AI SDK's "Data Stream Protocol".
 
-*Note: This is not an official package by Vercel, but rather a community-driven implementation of the protocol for use with python frameworks. All credit for the protocol design and specification belongs to Vercel. This implementation exists solely to empower developers with additional framework options, with no intention of competing with Vercel's offerings.*
+*Note: This is not an official package by Vercel, but rather a community-driven implementation of the protocol for use with python frameworks, it is not affiliated nor endorsed by Vercel. All credit for the protocol design and specification belongs to Vercel. This implementation exists solely to empower developers with additional framework options, with no intention of competing with Vercel's offerings.*
 
 ## Data Stream Protocol
 
