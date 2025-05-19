@@ -4,10 +4,6 @@ on:
   pull_request:
     branches:
       - main
-    paths:
-      - '**.py'
-      - 'pyproject.toml'
-      - 'poetry.lock'
   workflow_dispatch:
 
 jobs:
