@@ -1,6 +1,8 @@
-# Data Stream
+# AI Data Stream
 
-This module contains code for implementing Vercel AI SDK's "Data Stream Protocol".
+This package contains an implementation of the Vercel AI SDK's "Data Stream Protocol".
+
+*Note: This is not an official package by Vercel, but rather a community-driven implementation of the protocol for use with python frameworks. All credit for the protocol design and specification belongs to Vercel. This implementation exists solely to empower developers with additional framework options, with no intention of competing with Vercel's offerings.*
 
 ## Data Stream Protocol
 
