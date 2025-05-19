@@ -10,7 +10,6 @@ from enum import Enum
 from typing import Any, Union
 
 
-# todo - tool call start
 class DataStreamType:
     START_STEP = "f"
     FINISH_STEP = "e"
