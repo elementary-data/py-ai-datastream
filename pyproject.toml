@@ -9,8 +9,21 @@ description = "A Python implementation of the Vercel AI Data Stream protocol"
 readme = "README.md"
 authors = ["Elementary"]
 license = "Apache-2.0"
-keywords = ["ai", "data", "stream", "vercel"]
+keywords = ["ai", "data", "stream", "vercel", "langchain", "fastapi", "agent"]
 packages = [{include = "ai_datastream"}]
+classifiers = [
+    "License :: OSI Approved :: Apache Software License",
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Typing :: Typed"
+]
 
 [tool.poetry.dependencies]
 python = ">=3.9,<4.0"
