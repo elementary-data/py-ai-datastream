@@ -1,0 +1,2 @@
+DATA_STREAM_HEADER = "X-Vercel-AI-Data-Stream"
+DATA_STREAM_HEADER_VALUE = "v1"

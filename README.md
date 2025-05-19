@@ -76,11 +76,11 @@ const { messages, input, handleInputChange, handleSubmit, isLoading } = useChat(
 
 ## Agent Frameworks
 
-- [LangGraph](/agent/langgraph)
+- [LangGraph](/ai_datastream/agent/langgraph)
 
-## Web Frameworks
+## API Frameworks
 
-- [FastAPI](/api/fastapi)
+- [FastAPI](/ai_datastream/api/fastapi)
 
 # Contributing
 
@@ -97,7 +97,7 @@ curl -sSL https://install.python-poetry.org | python3 - --version 2.1.2
 
 2. Install dependencies:
 ```bash
-poetry install
+poetry install --with dev
 ```
 
 3. Install pre-commit hooks:
@@ -124,4 +124,3 @@ Run the test suite:
 ```bash
 poetry run pytest
 ```
-

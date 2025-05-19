@@ -1,0 +1,46 @@
+name: Pre-merge Checks
+
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.9'
+
+      - name: Install Poetry 2.1.2
+        run: |
+          curl -sSL https://install.python-poetry.org | python3 - --version 2.1.2
+          poetry config virtualenvs.create true
+          poetry config virtualenvs.in-project true
+
+      - name: Load cached venv
+        id: cached-poetry-dependencies
+        uses: actions/cache@v3
+        with:
+          path: .venv
+          key: venv-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
+
+      - name: Install dependencies
+        if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
+        run: poetry install --no-interaction --no-root --all-groups
+
+      - name: Install pre-commit
+        run: |
+          pip install pre-commit
+          pre-commit install
+
+      - name: Run pre-commit hooks
+        run: pre-commit run --all-files --show-diff-on-failure
+
+      - name: Run tests
+        run: poetry run pytest tests/ -vvv
