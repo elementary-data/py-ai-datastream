@@ -2,14 +2,12 @@
 
 This package contains an implementation of the Vercel AI SDK's "Data Stream Protocol".
 
-*Note: This is not an official package by Vercel, but rather a community-driven implementaion of the protocol for use with python frameworks.*
+*Note: This is not an official package by Vercel, but rather a community-driven implementation of the protocol for use with python frameworks. All credit for the protocol design and specification belongs to Vercel. This implementation exists solely to empower developers with additional framework options, with no intention of competing with Vercel's offerings.*
 
 ## Data Stream Protocol
 
 The Data Stream Protocol is a protocol for streaming ai chat response to the client.
 The protocol is described in the [Vercel AI SDK](https://sdk.vercel.ai/docs/ai-sdk-ui/stream-protocol#data-stream-protocol) documentation.
-
-*Note: This package implements Vercel's Data Stream Protocol specification. All credit for the protocol design and specification belongs to Vercel. This implementation exists solely to empower developers with additional framework options, with no intention of competing with Vercel's offerings.*
 
 The basic idea is that the server sends a stream of messages to the client, in the following format:
 
