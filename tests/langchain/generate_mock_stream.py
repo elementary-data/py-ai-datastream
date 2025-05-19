@@ -1,6 +1,12 @@
+"""
+This is a script to generate a mock stream for testing the LangGraph agent.
+This script requres the langchain-openai package in addition to the regular dependencies.
+In order for this script to work, you must have a valid OpenAI API key set as an environment variable, in OPENAI_API_KEY.
+"""  # noqa: E501
+
 from langchain_core.messages import HumanMessage
 from langchain_core.tools import tool
-from langchain_openai.chat_models import ChatOpenAI
+from langchain_openai.chat_models import ChatOpenAI  # type: ignore
 from langgraph.prebuilt import create_react_agent
 
 
