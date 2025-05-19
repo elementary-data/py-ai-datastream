@@ -1,0 +1,62 @@
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "ai-datastream"
+version = "0.1.0"
+description = "A Python implementation of the Vercel AI Data Stream protocol"
+readme = "README.md"
+authors = ["Elementary"]
+license = "Apache-2.0"
+keywords = ["ai", "data", "stream", "vercel"]
+packages = [{include = "ai_datastream"}]
+
+[tool.poetry.dependencies]
+python = ">=3.9,<4.0"
+
+[tool.poetry.group.langgraph]
+optional = true
+
+[tool.poetry.group.langgraph.dependencies]
+langgraph = ">=0.3.0,<1.0.0"
+
+[tool.poetry.group.fastapi]
+optional = true
+
+[tool.poetry.group.fastapi.dependencies]
+fastapi = ">=0.113.0,<1.0.0"
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.11.9"
+mypy = "^1.9.0"
+pytest = "^8.3.4"
+pre-commit = "^3.6.0"
+pytest-asyncio = "^0.26.0"
+
+[tool.ruff]
+line-length = 88
+target-version = "py39"
+
+[tool.ruff.lint]
+select = [
+    "E",  # pycodestyle errors
+    "W",  # pycodestyle warnings
+    "F",  # pyflakes
+    "I",  # isort
+    "B",  # flake8-bugbear
+]
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_unreachable = true

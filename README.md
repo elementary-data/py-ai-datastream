@@ -97,7 +97,7 @@ curl -sSL https://install.python-poetry.org | python3 - --version 2.1.2
 
 2. Install dependencies:
 ```bash
-poetry install
+poetry install --with dev
 ```
 
 3. Install pre-commit hooks:
@@ -124,4 +124,3 @@ Run the test suite:
 ```bash
 poetry run pytest
 ```
-
