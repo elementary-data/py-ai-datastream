@@ -37,8 +37,11 @@ class LanggraphStreamer(Streamer, AsyncStreamer):
         self.status = StreamStatus.INIT
 
     def _handle_stream_finish(self) -> Generator[DataStreamPart, None, None]:
-        snapshot = self.agent.get_state(self.config)
-        if snapshot.next:
+        try:
+            snapshot = self.agent.get_state(self.config)
+        except ValueError:
+            snapshot = None
+        if snapshot and snapshot.next:
             self.status = StreamStatus.INTERRUPTED
             return
         if self.converter.current_message_id is not None:
