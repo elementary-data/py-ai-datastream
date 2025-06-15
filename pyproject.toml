@@ -4,13 +4,14 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "ai-datastream"
-version = "0.1.0"
+version = "0.1.1"
 description = "A Python implementation of the Vercel AI Data Stream protocol"
 readme = "README.md"
 authors = ["Elementary"]
 license = "Apache-2.0"
 keywords = ["ai", "data", "stream", "vercel", "langchain", "fastapi", "agent"]
 packages = [{include = "ai_datastream"}]
+repository = "https://github.com/elementary-data/py-ai-datastream"
 classifiers = [
     "License :: OSI Approved :: Apache Software License",
     "Development Status :: 4 - Beta",
