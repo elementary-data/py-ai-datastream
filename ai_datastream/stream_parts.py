@@ -15,6 +15,7 @@ class DataStreamType:
     FINISH_STEP = "e"
     FINISH_RUN = "d"
     TOOL_CALL_START = "b"
+    TOOL_CALL_DELTA = "c"
     TOOL_CALL = "9"
     TOOL_RESULT = "a"
     TEXT = "0"
@@ -72,6 +73,14 @@ class DataStreamToolCallStart(DataStreamPart):
         super().__init__(
             DataStreamType.TOOL_CALL_START,
             {"toolCallId": tool_call_id, "toolName": tool_name},
+        )
+
+
+class DataStreamToolCallDelta(DataStreamPart):
+    def __init__(self, tool_call_id: str, args_text_delta: str):
+        super().__init__(
+            DataStreamType.TOOL_CALL_DELTA,
+            {"toolCallId": tool_call_id, "argsTextDelta": args_text_delta},
         )
 
 
