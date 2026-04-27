@@ -6,41 +6,50 @@ on:
       - main
   workflow_dispatch:
 
+permissions: {}
+
+concurrency:
+  group: pre-merge-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   checks:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
     steps:
       - uses: actions/checkout@v4
 
       - name: Set up Python
+        id: setup-python
         uses: actions/setup-python@v5
         with:
           python-version: '3.9'
 
       - name: Install Poetry 2.1.2
         run: |
-          curl -sSL https://install.python-poetry.org | python3 - --version 2.1.2
+          pipx install poetry==2.1.2
           poetry config virtualenvs.create true
           poetry config virtualenvs.in-project true
 
       - name: Load cached venv
         id: cached-poetry-dependencies
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: .venv
-          key: venv-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
+          key: venv-${{ runner.os }}-py${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('**/poetry.lock') }}
+          restore-keys: |
+            venv-${{ runner.os }}-py${{ steps.setup-python.outputs.python-version }}-
 
       - name: Install dependencies
         if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
         run: poetry install --no-interaction --no-root --all-groups
 
-      - name: Install pre-commit
+      - name: Run pre-commit hooks
         run: |
           pip install pre-commit
-          pre-commit install
-
-      - name: Run pre-commit hooks
-        run: pre-commit run --all-files --show-diff-on-failure
+          pre-commit run --all-files --show-diff-on-failure
 
       - name: Run tests
         run: poetry run pytest tests/ -vvv
